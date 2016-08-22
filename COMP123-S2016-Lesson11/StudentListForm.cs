@@ -26,7 +26,7 @@ namespace COMP123_S2016_Lesson11
 
         private void AddStudentButton_Click(object sender, EventArgs e)
         {
-            AddStudentForm addStudentForm = new AddStudentForm();
+            StudentDetailsForm addStudentForm = new StudentDetailsForm();
             addStudentForm.studentListForm = this;
             addStudentForm.Show();
             this.Hide();

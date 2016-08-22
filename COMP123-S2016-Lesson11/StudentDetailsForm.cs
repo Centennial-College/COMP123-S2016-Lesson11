@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace COMP123_S2016_Lesson11
 {
-    public partial class AddStudentForm : Form
+    public partial class StudentDetailsForm : Form
     {
         public StudentListForm studentListForm { get; set; }
 
-        public AddStudentForm()
+        public StudentDetailsForm()
         {
             InitializeComponent();
         }
