@@ -127,7 +127,7 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // AddStudentForm
+            // StudentDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -141,9 +141,11 @@
             this.Controls.Add(this.FirstNameLabel);
             this.Controls.Add(this.NewStudentLabel);
             this.Controls.Add(this.SubmitButton);
-            this.Name = "AddStudentForm";
+            this.Name = "StudentDetailsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Student";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StudentDetailsForm_FormClosing);
+            this.Load += new System.EventHandler(this.StudentDetailsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

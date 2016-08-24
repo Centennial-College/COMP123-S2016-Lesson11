@@ -41,6 +41,9 @@
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Details = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.StudentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cOMP123DataSet)).BeginInit();
@@ -54,6 +57,7 @@
             this.StudentsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.StudentsDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.StudentsDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.StudentsDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Lucida Sans", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -67,7 +71,10 @@
             this.StudentID,
             this.firstNameDataGridViewTextBoxColumn,
             this.lastNameDataGridViewTextBoxColumn,
-            this.numberDataGridViewTextBoxColumn});
+            this.numberDataGridViewTextBoxColumn,
+            this.Details,
+            this.Edit,
+            this.Delete});
             this.StudentsDataGridView.DataSource = this.studentsBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
@@ -86,6 +93,8 @@
             this.StudentsDataGridView.RowHeadersVisible = false;
             this.StudentsDataGridView.Size = new System.Drawing.Size(1027, 511);
             this.StudentsDataGridView.TabIndex = 0;
+            this.StudentsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StudentsDataGridView_CellContentClick);
+            this.StudentsDataGridView.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.StudentsDataGridView_CellMouseEnter);
             // 
             // studentsBindingSource
             // 
@@ -131,7 +140,7 @@
             this.StudentID.Name = "StudentID";
             this.StudentID.ReadOnly = true;
             this.StudentID.Visible = false;
-            this.StudentID.Width = 189;
+            this.StudentID.Width = 170;
             // 
             // firstNameDataGridViewTextBoxColumn
             // 
@@ -157,6 +166,39 @@
             this.numberDataGridViewTextBoxColumn.ReadOnly = true;
             this.numberDataGridViewTextBoxColumn.Width = 165;
             // 
+            // Details
+            // 
+            this.Details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Details.HeaderText = "Details";
+            this.Details.Name = "Details";
+            this.Details.ReadOnly = true;
+            this.Details.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Details.Text = "Details";
+            this.Details.UseColumnTextForButtonValue = true;
+            this.Details.Width = 150;
+            // 
+            // Edit
+            // 
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Edit.HeaderText = "Edit";
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForButtonValue = true;
+            this.Edit.Width = 150;
+            // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 150;
+            // 
             // StudentListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,6 +212,7 @@
             this.Name = "StudentListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentList";
+            this.Activated += new System.EventHandler(this.StudentListForm_Activated);
             this.Load += new System.EventHandler(this.StudentListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.StudentsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).EndInit();
@@ -191,6 +234,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Details;
+        private System.Windows.Forms.DataGridViewButtonColumn Edit;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }
 
