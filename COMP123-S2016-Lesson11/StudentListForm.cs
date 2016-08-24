@@ -20,7 +20,7 @@ namespace COMP123_S2016_Lesson11
 
         private void StudentListForm_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void AddStudentButton_Click(object sender, EventArgs e)

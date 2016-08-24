@@ -55,7 +55,49 @@ namespace COMP123_S2016_Lesson11
 
         private void StudentDetailsForm_Load(object sender, EventArgs e)
         {
+            // create db object
+            StudentDataContext db = new StudentDataContext();
 
+            // check to ensure that you are asking for Details Form, Edit Form or a Delete Form
+            if (this.FormType > 3)
+            {
+                Student studentDetails = (from student in db.Students
+                                          where student.StudentID == this.StudentID
+                                          select student).FirstOrDefault();
+
+                // Display details in the Text Boxes of the Form
+                FirstNameTextBox.Text = studentDetails.FirstName;
+                LastNameTextBox.Text = studentDetails.LastName;
+                StudentNumberTextBox.Text = studentDetails.Number;
+            }
+
+            switch (this.FormType)
+            {
+                case (int)ColumnButton.Details:
+                    NewStudentLabel.Text = "Student Details";
+                    this.Text = "Student Details";
+                    SubmitButton.Visible = false;
+                    FirstNameTextBox.ReadOnly = true;
+                    LastNameTextBox.ReadOnly = true;
+                    StudentNumberTextBox.ReadOnly = true;
+                    CancelButton.Text = "Back";
+                    break;
+                case (int)ColumnButton.Edit:
+                    NewStudentLabel.Text = "Edit Student";
+                    this.Text = "Edit Student";
+                    SubmitButton.Visible = false;
+                    SubmitButton.Text = "Update";
+                    break;
+                case (int)ColumnButton.Delete:
+                    NewStudentLabel.Text = "Delete Student";
+                    this.Text = "Delete Student";
+                    FirstNameTextBox.ReadOnly = true;
+                    LastNameTextBox.ReadOnly = true;
+                    StudentNumberTextBox.ReadOnly = true;
+                    SubmitButton.Text = "Delete";
+                    SubmitButton.BackColor = Color.Red;
+                    break;
+            }
         }
 
         private void StudentDetailsForm_FormClosing(object sender, FormClosingEventArgs e)
