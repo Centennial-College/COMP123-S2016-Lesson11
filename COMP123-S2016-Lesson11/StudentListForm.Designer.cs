@@ -51,6 +51,7 @@
             // 
             // StudentsDataGridView
             // 
+            this.StudentsDataGridView.AllowUserToAddRows = false;
             this.StudentsDataGridView.AllowUserToResizeColumns = false;
             this.StudentsDataGridView.AllowUserToResizeRows = false;
             this.StudentsDataGridView.AutoGenerateColumns = false;
@@ -169,6 +170,7 @@
             // Details
             // 
             this.Details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Details.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Details.HeaderText = "Details";
             this.Details.Name = "Details";
             this.Details.ReadOnly = true;
@@ -180,6 +182,7 @@
             // Edit
             // 
             this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Edit.HeaderText = "Edit";
             this.Edit.Name = "Edit";
             this.Edit.ReadOnly = true;
@@ -191,6 +194,7 @@
             // Delete
             // 
             this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete.HeaderText = "Delete";
             this.Delete.Name = "Delete";
             this.Delete.ReadOnly = true;

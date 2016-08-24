@@ -89,6 +89,7 @@
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.Size = new System.Drawing.Size(352, 39);
             this.FirstNameTextBox.TabIndex = 4;
+            this.FirstNameTextBox.TextChanged += new System.EventHandler(this.FormTextBox_TextChanged);
             // 
             // LastNameTextBox
             // 
@@ -97,6 +98,7 @@
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.Size = new System.Drawing.Size(352, 39);
             this.LastNameTextBox.TabIndex = 5;
+            this.LastNameTextBox.TextChanged += new System.EventHandler(this.FormTextBox_TextChanged);
             // 
             // StudentNumberTextBox
             // 
@@ -105,6 +107,7 @@
             this.StudentNumberTextBox.Name = "StudentNumberTextBox";
             this.StudentNumberTextBox.Size = new System.Drawing.Size(352, 39);
             this.StudentNumberTextBox.TabIndex = 6;
+            this.StudentNumberTextBox.TextChanged += new System.EventHandler(this.FormTextBox_TextChanged);
             // 
             // StudentNumberLabel
             // 

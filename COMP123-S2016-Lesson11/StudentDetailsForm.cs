@@ -16,6 +16,8 @@ namespace COMP123_S2016_Lesson11
         public StudentListForm studentListForm { get; set; } // references previous form
         public int FormType { get; set; } // what type of form do I need?
         public int StudentID { get; set; } // what is the studentID of the row clicked?
+        public bool HasEdits { get; set; }
+
 
         public StudentDetailsForm()
         {
@@ -70,9 +72,20 @@ namespace COMP123_S2016_Lesson11
             this.Close();
         }
 
+        private DialogResult CancelConfirmation()
+        {
+            if (this.FormType == 5 && this.HasEdits)
+            {
+                return MessageBox.Show("Are you sure you want to cancel your edits?", "Cancel Confirmation", MessageBoxButtons.OKCancel);
+            }
+            else
+            {
+                return DialogResult.OK;
+            }
+        }
+
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            this.studentListForm.Show();
             this.Close();
         }
 
@@ -92,6 +105,9 @@ namespace COMP123_S2016_Lesson11
                 FirstNameTextBox.Text = studentDetails.FirstName;
                 LastNameTextBox.Text = studentDetails.LastName;
                 StudentNumberTextBox.Text = studentDetails.Number;
+
+                // only detect FormTextBox being edited after this
+                this.HasEdits = false;
             }
 
             switch (this.FormType)
@@ -125,7 +141,19 @@ namespace COMP123_S2016_Lesson11
 
         private void StudentDetailsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (CancelConfirmation() == DialogResult.OK)
+            {
+                this.studentListForm.Show();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
 
+        private void FormTextBox_TextChanged(object sender, EventArgs e)
+        {
+            this.HasEdits = true;
         }
     }
 }
