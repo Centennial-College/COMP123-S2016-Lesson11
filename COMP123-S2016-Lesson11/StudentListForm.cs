@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using COMP123_S2016_Lesson11.Models;
 
 namespace COMP123_S2016_Lesson11
 {
@@ -51,11 +52,6 @@ namespace COMP123_S2016_Lesson11
         private void StudentListForm_Activated(object sender, EventArgs e)
         {
             this.studentsTableAdapter.Fill(this.cOMP123DataSet.Students);
-
-            //StudentDataContext db = new StudentDataContext();
-            //List<Student> studentList = (from student in db.Students
-            //                             select student).ToList();
-            //StudentsDataGridView.DataSource = studentList;
         }
 
         private void StudentsDataGridView_CellMouseEnter(object sender, DataGridViewCellEventArgs e)

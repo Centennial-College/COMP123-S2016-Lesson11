@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using COMP123_S2016_Lesson11.Models;
 
 namespace COMP123_S2016_Lesson11
 {
@@ -27,7 +28,7 @@ namespace COMP123_S2016_Lesson11
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             // creates a reference to the database
-            StudentDataContext db = new StudentDataContext();
+            StudentContext db = new StudentContext();
 
             Student newStudent = new Student();
 
@@ -48,7 +49,7 @@ namespace COMP123_S2016_Lesson11
             if (this.FormType < 4)
             {
                 // Insert the new Student Object into the SQL Database
-                db.GetTable<Student>().InsertOnSubmit(newStudent);
+                db.Students.Add(newStudent);
             }
 
             // Delete Record
@@ -58,12 +59,12 @@ namespace COMP123_S2016_Lesson11
                 DialogResult result = MessageBox.Show("Are you sure?", "Confirm Deletion", MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
                 {
-                    db.GetTable<Student>().DeleteOnSubmit(newStudent);
+                    db.Students.Remove(newStudent);
                 }
             }
 
             // Save changes / update record
-            db.SubmitChanges();
+            db.SaveChanges();
 
             // show the Student List Form
             this.studentListForm.Show();
@@ -92,7 +93,7 @@ namespace COMP123_S2016_Lesson11
         private void StudentDetailsForm_Load(object sender, EventArgs e)
         {
             // create db object
-            StudentDataContext db = new StudentDataContext();
+            StudentContext db = new StudentContext();
 
             // check to ensure that you are asking for Details Form, Edit Form or a Delete Form
             if (this.FormType > 3)
